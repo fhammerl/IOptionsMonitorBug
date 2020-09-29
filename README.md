@@ -1,5 +1,5 @@
 # IOptionsMonitorBug
-Demonstrates a bug with `IOptionsMonitor&lt;T>` in ASP.NET Core 3.1
+Demonstrates a bug with `IOptionsMonitor<T>` in ASP.NET Core 3.1
 
 TO REPRODUCE THE ISSUE:
 1) Run the website
