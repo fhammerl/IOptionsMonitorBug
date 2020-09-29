@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Demo
@@ -7,13 +8,20 @@ namespace Demo
     public class MyController : Controller
     {
         private readonly IOptionsMonitor<MyOptions> optionsMonitor;
+        private readonly ILogger<MyController> logger;
 
-        public MyController(IOptionsMonitor<MyOptions> optionsMonitor) => this.optionsMonitor = optionsMonitor;
+        public MyController(
+            IOptionsMonitor<MyOptions> optionsMonitor,
+            ILogger<MyController> logger)
+        {
+            this.optionsMonitor = optionsMonitor;
+            this.logger = logger;
+        }
 
         [Route("ping")]
         public IActionResult Ping()
         {
-            Console.WriteLine(this.optionsMonitor.CurrentValue.MyValue);
+            this.logger.LogInformation($"MyValue = {this.optionsMonitor.CurrentValue.MyValue}");
 
             return new OkResult();
         }
