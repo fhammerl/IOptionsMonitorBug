@@ -4,7 +4,7 @@ Demonstrates a bug with `IOptionsMonitor<T>` in ASP.NET Core 3.1
 TO REPRODUCE THE ISSUE:
 1) Run the website
 2) Hit the `/ping` endpoint from a browser - e.g. `https://localhost:5001/ping`
-3) Observer that `"MyValue = foo"` is printed to the Console - `"foo"` is the value from appsettings.json
+3) Observe that `"MyValue = foo"` is printed to the Console - `"foo"` is the value from appsettings.json
 4) While the site is running, change the value of `"foo"` in appsettings.json to `"bar"`
 5) Hit the `/ping endpoint` again from a browser - e.g. `https://localhost:5001/ping`
 6) Observe that `"MyValue = foo"` is printed to the Console again. This value is stale
